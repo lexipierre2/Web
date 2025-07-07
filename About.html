@@ -1,0 +1,145 @@
+
+<head>
+    <title>Wanmin</title>
+    <link rel="stylesheet" type="text/css" href="About.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+    <body>
+</main>
+        <div class="Wanmin">
+            <nav>
+                <h2 class="logo"><span> About Me</span></h2>
+                <u1 class="nav-links"> 
+                    <li><a href="base.html">Home</a></li>
+                    <li><a href="Menu.html">Menu</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+
+                </u1>
+                <button type="button">More</button>
+            </nav>
+        </div>
+        <div class="info">
+                <img src="jelly.jpg" alt="Me">
+              </div> 
+               <div class="text">
+                <h2>Hi my name is Isabella.</h2>
+                <p><strong>I am 14 years old</strong></p>
+                <p></p>
+              </div>
+                 
+         <li></li>
+    </ui>
+   
+</div>
+
+
+    </body>
+</head>
+<head>
+<meta charset="UTF-8">
+<title>Shooting‑Star Background</title>
+<style>
+/* ----- BASIC LAYOUT ----- */
+*,
+*::before,
+*::after{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html,body{
+  height:100%;
+  overflow:hidden;
+  font-family:sans-serif;
+}
+
+/* ----- SKY BACKGROUND ----- */
+body{
+  background:#020d1e;                                            /* deep night blue          */
+  background-image:
+    radial-gradient(circle at 20% 20%, #445377 0%, transparent 40%),
+    radial-gradient(circle at 80% 10%, #2d3c59 0%, transparent 35%),
+    radial-gradient(circle at 50% 80%, #11203b 0%, transparent 50%);
+  background-size:cover;
+}
+
+/* ----- TWINKLING STARS ----- */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:#fff;
+  border-radius:50%;
+  animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+  0%,100%{ opacity:0.15; transform:scale(0.8); }
+  50%   { opacity:0.9;  transform:scale(1);   }
+}
+
+/* ----- SHOOTING STARS ----- */
+.shooter{
+  --tail-length:140px;    /* adjust for longer/shorter tail */
+  position:absolute;
+  top:0; left:0;
+  width:var(--tail-length);
+  height:2px;
+  background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,0) 80%);
+  filter:drop-shadow(0 0 4px #fff);
+  transform-origin:right center;
+  opacity:0;
+  animation:shoot 6s linear infinite;
+}
+
+/* Different delays for multiple shooters */
+.shooter:nth-child(2){ animation-delay:2s;  }
+.shooter:nth-child(3){ animation-delay:4s;  }
+.shooter:nth-child(4){ animation-delay:5.7s;}
+.shooter:nth-child(5){ animation-delay:8.5s;}
+
+/* Main shooting animation */
+@keyframes shoot{
+  0%   { transform:translateX(110vw) translateY(0) rotate(-30deg);
+         opacity:0; }
+  5%   { opacity:1; }
+  60%  { opacity:1; }
+  80%  { opacity:0; }
+  100% { transform:translateX(-10vw) translateY(80vh) rotate(-30deg);
+         opacity:0; }
+}
+</style>
+</head>
+
+<body>
+  <!-- 50 randomly placed tiny stars -->
+  <script>
+    const makeStar = () => {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top  = Math.random()*100 + 'vh';
+      star.style.left = Math.random()*100 + 'vw';
+      star.style.animationDelay = (Math.random()*3)+'s';
+      document.body.appendChild(star);
+    }
+    Array.from({length:50}, makeStar);
+
+    /* 5 shooting stars recycled forever */
+    const shooters = 12;
+    for(let i=0;i<shooters;i++){
+      const s = document.createElement('div');
+      s.className='shooter';
+      document.body.appendChild(s);
+    }
+    const SHOOTERS = 12;             // ← more shooting stars
+    for(let i=0;i<SHOOTERS;i++){
+      const ss = document.createElement('div');
+      ss.className = 'shooter';
+      ss.style.animationDelay = (Math.random()*7)+'s';      // desynchronise
+      document.body.appendChild(ss);
+    }
+  </script>
+</body>

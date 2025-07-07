@@ -1,0 +1,106 @@
+<head>
+    <title>Wanmin</title>
+    <link rel="stylesheet" href="menu.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+<body>
+    <main>
+        <h1 class="topic">Our Menu</h1>
+    </main>
+    <nav>
+        <h2 class="logo"><span> Wanmin</span></h2>
+        <ul class="nav-links">
+            <li><a href="base.html">Home</a></li>
+            <li><a href="Menu.html">Menu</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+        </ul>
+        <button class="nav-button">Book Now</button>
+    </nav>
+
+    <div class="menu-row">
+        <div class="menu-item">
+            <button class="scroll-btn left" onclick="changeFood(-1, 0)">⬅</button>
+            <div class="food-content" id="food-0">
+                <img src="food.jpg" alt="Noodles">
+                <h2>Noodles</h2>
+                <p><strong>Cost: $10</strong></p>
+                <p>Get ready for a blast of flavor that will leave you wanting more!</p>
+                <a href="booking.html">
+                    <button>Book Now</button>
+                </a>
+            </div>
+            <button class="scroll-btn right" onclick="changeFood(1, 0)">➡</button>
+        </div>
+
+        <div class="menu-item">
+            <button class="scroll-btn left" onclick="changeFood(-1, 1)">⬅</button>
+            <div class="food-content" id="food-1">
+                <img src="dump.jpeg" alt="Dumpling Desserts">
+                <h2>Dumpling Desserts</h2>
+                <p><strong>Cost: $20</strong></p>
+                <p>Korean dumplings consist of thin wrappers stuffed with flavorful ingredients and steamed to perfection.</p>
+                <a href="booking.html">
+                    <button>Book Now</button>
+                </a>
+            </div>
+            <button class="scroll-btn right" onclick="changeFood(1, 1)">➡</button>
+        </div>
+
+        <div class="menu-item">
+            <button class="scroll-btn left" onclick="changeFood(-1, 2)">⬅</button>
+            <div class="food-content" id="food-2">
+                <img src="rice.jpg" alt="Fried Rice">
+                <h2>Crunchy Fried Rice</h2>
+                <p><strong>Cost: $25</strong></p>
+                <p>This quick and easy Kimchi Fried Rice is the perfect balance of savory and spicy flavors.</p>
+                <a href="booking.html">
+                    <button>Book Now</button>
+                </a>
+            </div>
+            <button class="scroll-btn right" onclick="changeFood(1, 2)">➡</button>
+        </div>
+    </div>
+
+    <script>
+        const foodItems = [
+            [
+                { img: "food.jpg", name: "Noodles", cost: "$10", desc: "Get ready for a blast of flavor that will leave you wanting more!" },
+                { img: "koreantacosthumb.jpg", name: "Tacos", cost: "$12", desc: "Hot and spicy ramen that packs a punch!" }
+            ],
+            [
+                { img: "dump.jpeg", name: "Dumpling Desserts", cost: "$20", desc: "Korean dumplings with flavorful fillings." },
+                { img: "sushi.jpg", name: "Steamed Sushi", cost: "$15", desc: "Soft and fluffy buns with a delicious filling." }
+            ],
+            [
+                { img: "rice.jpg", name: "Crunchy Fried Rice", cost: "$25", desc: "Savory and spicy Kimchi Fried Rice." },
+                { img: "milk.jpg", name: "Strawberry Milkshake", cost: "$22", desc: "A delicious Korean rice bowl with fresh toppings." }
+            ]
+        ];
+
+        let foodIndex = [0, 0, 0]; 
+
+        function changeFood(direction, itemIndex) {
+            const currentIndex = foodIndex[itemIndex];
+            let newIndex = currentIndex + direction;
+            if (newIndex < 0) newIndex = foodItems[itemIndex].length - 1;
+            if (newIndex >= foodItems[itemIndex].length) newIndex = 0;
+            foodIndex[itemIndex] = newIndex;
+
+            const food = foodItems[itemIndex][newIndex];
+            const foodDiv = document.getElementById(`food-${itemIndex}`);
+            foodDiv.innerHTML = `
+                <img src="${food.img}" alt="${food.name}">
+                <h2>${food.name}</h2>
+                <p><strong>Cost: ${food.cost}</strong></p>
+                <p>${food.desc}</p>
+                <a href="booking.html">
+                    <button>Book Now</button>
+                </a>
+            `;
+        }
+    </script>
+</body>
+
+

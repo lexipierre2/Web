@@ -1,0 +1,100 @@
+body {
+    background-image: url(screen.jpg);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone {
+    background-image: url(homescreen.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 250px;
+    height: 430px;
+    border: 60px solid #ffffff;
+    border-left-width: 13px;
+    border-right-width: 13px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.phone-top {
+    position: absolute;
+    top: -10px; /* lower value to move it down inside bezel */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 2;
+    padding-top: 5px;
+}
+
+.camera {
+    width: 10px;
+    height: 10px;
+    background-color: #222;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+.speaker {
+    width: 40px;
+    height: 6px;
+    background-color: #444;
+    border-radius: 3px;
+    margin-top: 2px;
+}
+
+/* Home button at the bottom */
+.home-button {
+    position: absolute;
+    bottom: 30px; /* increased from 20px to lift it inside the phone */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    border: 2px solid #888;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    display: block;
+    cursor: pointer;
+}
+.app-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    padding: 10px;
+    margin-top:10px;
+}
+
+.app-button {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    
+}
+
+.app-button:hover {
+    background-color: #e1a0e2;
+}
